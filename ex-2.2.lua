@@ -46,11 +46,13 @@ function addqueen (a, n)
       for c = 1, N do
 	 for i = 1, n - 1 do
 	    if a[i] == c then
-	       break
+	       goto con
 	    end
 	 end
 	 a[n] = c    -- place n-th queen at column 'c'
 	 addqueen (a, n + 1)
+
+         ::con::
       end
    end
 end
@@ -60,8 +62,8 @@ isplaceok_count = 0
 -- run the program
 addqueen ({}, 1)
 
-print (isplaceok_count)  --> 50889536
+print (isplaceok_count)  --> 140756
 
 -- This program has a much worse running time than ‘fig-2.1.lua’.
 -- That one invoked function ‘isplaceok’ just 15720, while this made
--- 50889536 invocations.
+-- 140756 invocations.
